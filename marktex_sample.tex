@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[margin=1in]{geometry}
+\usepackage[normalem]{ulem}
+
+\title{My \sout{Complex} \textbf{\underline{\textit{Simple}} Paper}}
+\author{\textasciitilde{}John\_Doe}
+\date{2026}
+
+
+\begin{document}
+
+\maketitle
+
+
+Hello from my mini markTeX parser with escaped LaTeX characters:
+
+\# \$ \% \& \_ \{ \} \textasciitilde{} \textasciicircum{} \textbackslash{} / {[} {]} !!
+
+\section{Introduction }\label{sec:intro}
+
+This is \textit{italic}, \textbf{bold}, \underline{underline}, \sout{strike}, \textbf{start bold with \textit{italic and \underline{underline and \sout{strike} inside} inside}.} Lets take a look at all our features down below.
+
+New paragraph showing Nested formatting:
+
+\begin{itemize}
+\item First list item with References: See \Cref{sec:intro} and the \hyperref[sec:features]{features section} (\Cref{sec:features}) and also see \hyperref[sec:intro]{these sections} (\Cref{sec:intro,sec:background,sec:list-header}). 
+\item \cite{paper1,paper_2026} and \cite{paper1} mixed with formatting \textit{italic \cite{paper1,paper_2026}}.
+\item Third list item with nesting
+
+Second paragraph inside third item
+
+\subsection{Header inside list item }\label{sec:list-header}
+
+More text after header
+\end{itemize}
+
+Paragraph outside the list.
+
+\section{Background }\label{sec:background}
+
+Something about the background of the project, it was motivated to bring markdown's simplicity to LaTeX's complex structure and powerful features.
+
+\subsection{Features }\label{sec:features}
+
+Some features are mentioned above already. Now lets do a code block test:
+
+\begin{verbatim}
+print("Hello, MarkTex!")
+# Not parsed as markdown
+**not bold** , *not italic* , _not underline_ , ~~not strike~~
+[@not_a_citation] , [#not a reference]
+
+\end{verbatim}
+
+End of document.
+
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
